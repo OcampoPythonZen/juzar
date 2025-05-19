@@ -157,6 +157,9 @@ project-root/
 - [ ] Implement model sharing functionality
 
 ### 3. Page Structure (Planned)
+
+-- Considerations: use into templates the header, menu and footer as parts to be included in the others sections using php fragments. in the footer also use a function to print the year dynamically.
+
 - [ ] Create header section
   - [ ] Responsive navigation
   - [ ] Logo integration
