@@ -168,7 +168,8 @@ project-root/
 
 - [ ] Implement hero section with 3D model
   - [ ] Full-viewport height
-  - [ ] 3D model integration
+  - [ ] 3D model integration, create a model in .glb format that contain an 3D extintor.
+        and save it into assets/models/extintor.glb
   - [ ] Scroll animations
   - [ ] Call-to-action buttons
 

@@ -1,45 +1,35 @@
-// Import the model viewer component
-import { ModelViewer } from './components/model-viewer.js';
+// Import components
+import { HeroModelViewer } from './components/hero-model-viewer.js';
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize the 3D model viewer
-    const modelContainer = document.getElementById('model-container');
-    if (modelContainer) {
-        // Update the path to your .glb model
-        const modelPath = themeData.themeUrl + '/assets/models/your-model.glb';
-        const viewer = new ModelViewer('model-container', modelPath);
-
-        // Add event listeners for model loading
-        document.addEventListener('modelLoaded', (e) => {
-            console.log('Model loaded successfully', e.detail.model);
-            // You can add any post-loading logic here
-        });
-
-        document.addEventListener('modelLoading', (e) => {
-            const percent = e.detail.percent.toFixed(1);
-            console.log(`Loading: ${percent}%`);
-            // Update loading progress UI if needed
-        });
-
-        document.addEventListener('modelError', (e) => {
-            console.error('Failed to load model:', e.detail.error);
-            // Display error message to the user
-            modelContainer.innerHTML = `
+    // Initialize the hero 3D model viewer if container exists
+    const heroModelContainer = document.getElementById('hero-model');
+    if (heroModelContainer) {
+        try {
+            // Initialize with custom options
+            new HeroModelViewer('hero-model', {
+                autoRotate: true,
+                autoRotateSpeed: 0.5,
+                scale: 1.2,
+                modelColor: '#ff3e3e',
+                cameraPosition: { x: 0, y: 0.5, z: 3 },
+                backgroundColor: 0x000000
+            });
+        } catch (error) {
+            console.error('Error initializing 3D model viewer:', error);
+            heroModelContainer.innerHTML = `
                 <div class="flex flex-col items-center justify-center h-full p-4 text-center">
-                    <div class="text-red-500 mb-2">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    <div class="text-red-500 mb-4">
+                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900">Error Loading Model</h3>
-                    <p class="mt-1 text-sm text-gray-500">We couldn't load the 3D model. Please try again later.</p>
-                    <button onclick="window.location.reload()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                        Retry
-                    </button>
+                    <h3 class="text-xl font-medium text-white">3D Model Unavailable</h3>
+                    <p class="mt-2 text-gray-300">We couldn't load the 3D preview. Please ensure JavaScript is enabled and try again.</p>
                 </div>
             `;
-        });
+        }
     }
 
     // Mobile menu toggle
