@@ -1,0 +1,38 @@
+{
+  "performance": {
+    "hints": "warning",
+    "maxEntrypointSize": 250000,
+    "maxAssetSize": 250000,
+    "assetFilter": "function(assetFilename) { return assetFilename.endsWith('.js') || assetFilename.endsWith('.css'); }"
+  },
+  "budgets": [
+    {
+      "type": "bundle",
+      "name": "main",
+      "maximumWarning": "200kb",
+      "maximumError": "250kb"
+    },
+    {
+      "type": "asset",
+      "name": "*.js",
+      "maximumWarning": "150kb",
+      "maximumError": "200kb"
+    },
+    {
+      "type": "asset",
+      "name": "*.css",
+      "maximumWarning": "50kb",
+      "maximumError": "100kb"
+    },
+    {
+      "type": "asset",
+      "name": "*.woff2",
+      "maximumWarning": "100kb"
+    },
+    {
+      "type": "asset",
+      "name": "*.woff",
+      "maximumWarning": "150kb"
+    }
+  ]
+}

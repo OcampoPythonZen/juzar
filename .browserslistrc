@@ -1,0 +1,40 @@
+# Browser support policy for Modern Landing Page
+
+# Modern browsers with > 0.5% market share and not dead
+> 0.5%
+not dead
+
+# Last 2 versions of major browsers
+last 2 versions
+not ie 11
+not op_mini all
+
+# Firefox ESR
+firefox esr
+
+# Safari 12+ for iOS and macOS
+safari >= 12
+
+# Chrome 80+ (released 2020)
+chrome >= 80
+
+# Edge 80+ (Chromium-based)
+edge >= 80
+
+# Firefox 78+ (ESR version)
+firefox >= 78
+
+# iOS 13+
+ios >= 13
+
+# Android 10+
+android >= 10
+
+# Opera 67+
+opera >= 67
+
+# Samsung Internet 12.0+
+samsung >= 12.0
+
+# UC Browser for Android 12.12+
+and_uc 12.12

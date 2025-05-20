@@ -1,0 +1,65 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Source code files
+*.js text diff=javascript
+*.jsx text diff=javascript
+*.ts text diff=typescript
+*.tsx text diff=typescript
+*.json text
+*.html text
+*.css text
+*.scss text
+*.sass text
+*.less text
+*.md text
+*.txt text
+*.yml text
+*.yaml text
+
+# Binary files that should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.svg binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.bz2 binary
+*.tar binary
+*.exe binary
+*.dll binary
+*.class binary
+*.jar binary
+*.war binary
+*.ear binary
+*.zip binary
+*.7z binary
+
+# Force LF line endings on Windows
+*.cmd text eol=lf
+*.bat text eol=lf
+*.ps1 text eol=lf
+*.sh text eol=lf
+
+# Files to ignore
+.DS_Store binary
+Thumbs.db binary
+desktop.ini binary
+
+# Force specific encoding for certain files
+*.css text charset=utf-8
+*.js text charset=utf-8
+*.json text charset=utf-8
+*.html text charset=utf-8
+*.md text charset=utf-8
+*.txt text charset=utf-8
+*.xml text charset=utf-8
+*.yml text charset=utf-8
+*.yaml text charset=utf-8
