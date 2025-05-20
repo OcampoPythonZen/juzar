@@ -134,11 +134,30 @@ export default defineConfig(({ command, mode }) => {
       
       // Configure Vite for WordPress theme development
       proxy: {
-        '^(?!/src/|/@vite/|/node_modules/)': {
+        '^/wp-content/.*\.(php|css|js|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)$': {
           target: env.VITE_WORDPRESS_URL || 'http://localhost',
           changeOrigin: true,
           secure: false,
-          rewrite: (path) => path.replace(/^\//, '/wp-content/themes/juzar/'),
+        },
+        '^/wp-admin/.*\.php$': {
+          target: env.VITE_WORDPRESS_URL || 'http://localhost',
+          changeOrigin: true,
+          secure: false,
+        },
+        '^/wp-includes/.*': {
+          target: env.VITE_WORDPRESS_URL || 'http://localhost',
+          changeOrigin: true,
+          secure: false,
+        },
+        '^/wp-json/.*': {
+          target: env.VITE_WORDPRESS_URL || 'http://localhost',
+          changeOrigin: true,
+          secure: false,
+        },
+        '^/$': {
+          target: env.VITE_WORDPRESS_URL || 'http://localhost',
+          changeOrigin: true,
+          secure: false,
         },
       },
       
